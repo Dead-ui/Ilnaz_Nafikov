@@ -16,3 +16,8 @@ full_name = "Алексей Смирнов"
 
 # Напиши код здесь:
 
+parts = full_name.split()
+name = parts[0]
+surname = parts[1]
+
+print(f"Привет, {name}! Твоя фамилия: {surname}.")
