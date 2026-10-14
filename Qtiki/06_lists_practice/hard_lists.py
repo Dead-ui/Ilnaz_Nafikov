@@ -10,6 +10,14 @@ heroes = ["Артур", "Ланселот", "Гвиневра", "Артур", "�
 print("--- Задание 1 ---")
 # Твой код здесь:
 
+unique_heroes = []
+for name in heroes:
+    if name not in unique_heroes:
+        unique_heroes.append(name)
+
+print(unique_heroes)
+numbers = [1, 2, 3, 4, 5]
+shift = 2
 
 # ==========================================
 # ЗАДАНИЕ 2: "Сдвиг списка" (Вращение)
@@ -24,6 +32,11 @@ shift = 2  # На сколько позиций сдвинуть вправо
 print("\n--- Задание 2 ---")
 # Твой код здесь:
 
+shifted_numbers = numbers[-shift:] + numbers[:-shift]
+
+print(shifted_numbers)
+text = "я люблю программировать и люблю писать код и люблю python"
+words = text.split()
 
 # ==========================================
 # ЗАДАНИЕ 3: "Частотный анализ" (Словарь + Список)
@@ -38,6 +51,14 @@ words = text.split()
 print("\n--- Задание 3 ---")
 # Твой код здесь:
 
+frequency = {}
+for word in words:
+    if word not in frequency:
+        frequency[word] = 1
+    else:
+        frequency[word] += 1
+
+print(frequency)
 
 # ==========================================
 # ЗАДАНИЕ 4: "Плоский список" (Вложенные списки)
@@ -51,3 +72,15 @@ nested_list = [[1, 2], [3, 4], [5, [6, 7]], [8]]
 # Подсказка: нужен вложенный цикл (цикл внутри цикла).
 print("\n--- Задание 4 ---")
 # Твой код здесь:
+
+def flatten(lst):
+    result = []
+    for item in lst:
+        if isinstance(item, list):
+            result.extend(flatten(item))
+        else:
+            result.append(item)
+    return result
+
+flat_list = flatten(nested_list)
+print(flat_list)
