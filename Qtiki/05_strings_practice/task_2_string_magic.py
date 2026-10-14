@@ -18,6 +18,9 @@ code = "a1b2c3d4e5"
 
 # Напиши код здесь:
 
+secret_numbers = code[1::2]
+print(secret_numbers)
+email = input("Введите email: ")
 
 # ---------------------------------------------------------
 
@@ -37,3 +40,7 @@ code = "a1b2c3d4e5"
 
 # Напиши код здесь:
 
+if "@" in email and email.endswith(".com"):
+    print("Email корректен!")
+else:
+    print("Ошибка в адресе!")
