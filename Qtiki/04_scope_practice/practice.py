@@ -2,7 +2,7 @@
 # ПРАКТИЧЕСКАЯ РАБОТА. ОБЛАСТЬ ВИДИМОСТИ
 # Тема: локальные и глобальные переменные
 # ============================================================
-ggg rrrr
+
 # ЗАДАНИЕ 1. Локальная переменная
 # Создай функцию show_message(), внутри которой есть переменная message.
 # Функция должна печатать это сообщение.
@@ -11,7 +11,11 @@ ggg rrrr
 # Что произойдёт? Запиши ответ в комментарий.
 
 # Напиши код здесь:
+def show_message():
+    message = "This is an internal variable."
+    print(message)
 
+show_message()
 
 
 # ЗАДАНИЕ 2. Чтение глобальной переменной
@@ -21,6 +25,12 @@ ggg rrrr
 
 # Напиши код здесь:
 
+gold = 100
+
+def show_gold():
+    print("Золото: ", gold)
+
+show_gold()
 
 
 # ЗАДАНИЕ 3. ТИХАЯ ОШИБКА (главная ловушка!)
@@ -33,6 +43,15 @@ ggg rrrr
 # Запиши ответ в комментарий.
 
 # Напиши код здесь:
+
+health = 100
+
+def take_damage():
+    health = 70
+    print(f"Внутри функции: {health}")
+
+take_damage()
+print(f"Снфружи функции: {health}")
 
 
 
@@ -47,6 +66,14 @@ ggg rrrr
 
 # Напиши код здесь:
 
+health = 100
+
+def apply_damage(hp, damage):
+    print(f"Получил урон: {damage}")
+    return hp - damage
+
+health = apply_damage(health, 30)
+print(f"Твое здоровье: {health}")
 
 
 # ЗАДАНИЕ 5. Накопитель через функцию
@@ -58,6 +85,14 @@ ggg rrrr
 
 # Напиши код здесь:
 
+money = 50
+
+def add_coins(current_money, amount):
+    return current_money + amount
+
+money = add_coins(money, 20)
+money = add_coins(money, 10)
+print("Итог денег:", money)
 
 
 # ЗАДАНИЕ 6. Параметр — это локальная переменная
@@ -71,15 +106,20 @@ ggg rrrr
 
 # Напиши код здесь:
 
+x = 5
 
+def change(value):
+    value = value + 10
+    print("Внутри функции:", value)
+
+change(x)
+print("Снаружи функции:", x)
 
 # ЗАДАНИЕ 7 (со звёздочкой). Декомпозиция квеста
 # Ниже — глобальные переменные квеста. Твоя задача — вынести
 # всю логику в функции, чтобы они принимали параметры и
 # возвращали результат. НЕ меняй глобальные переменные внутри!
 
-health = 100
-money = 0
 
 # Функция 1: apply_damage(hp, damage) -> возвращает новое здоровье
 # Функция 2: heal(hp, amount) -> возвращает новое здоровье
@@ -94,3 +134,20 @@ money = 0
 
 # Напиши код здесь:
 
+health = 100
+money = 0
+
+def apply_damage(hp, damage):
+    return hp - damage
+
+def heal(hp, amount):
+    return hp + amount
+
+def add_money(m, amount):
+    return m + amount
+
+health = apply_damage(health, 25)
+health = heal(health, 15)
+money = add_money(money, 30)
+print("Финальное здоровье:", health)
+print("Финальные монеты:", money)
